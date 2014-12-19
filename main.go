@@ -7,10 +7,10 @@ import (
     "log"
 )
 
-
 func main() {
     http.HandleFunc("/marco", func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Content-type", "text/plain")
+        w.Header().Set("X-Marco-Version", "0.0.1")
         fmt.Fprintf(w, "POLO!\n")
     })
 
@@ -20,7 +20,7 @@ func main() {
     })
     port := os.Getenv("PORT")
     if port == "" {
-        port = "80"
+        port = "8000"
     }
 
     log.Fatal(http.ListenAndServe("0.0.0.0:" + port, nil))
