@@ -10,7 +10,7 @@ import (
 func main() {
     http.HandleFunc("/marco", func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Content-type", "text/plain")
-        w.Header().Set("X-Marco-Version", "0.0.1")
+        w.Header().Set("X-Marco-Version", "0.0.2")
         fmt.Fprintf(w, "POLO!\n")
     })
 
